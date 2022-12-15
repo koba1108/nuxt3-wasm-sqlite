@@ -1,7 +1,7 @@
 import initSqlJs, {Database} from "sql.js";
 
-export default defineNuxtPlugin(async () => {
-  const locateFile = (file: string) => `/wasm/${file}`
+export default defineNuxtPlugin(async ({ options }) => {
+  const locateFile = (file: string) => `${options.baseURL}/wasm/${file}`
   const SQL = await initSqlJs({locateFile});
   const db = new SQL.Database();
 
